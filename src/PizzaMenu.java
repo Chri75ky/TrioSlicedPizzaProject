@@ -30,6 +30,15 @@ public class PizzaMenu {
     public void removePizza(Pizza pizza){
         pizzaMenu.remove(pizza);
     }
+    public Pizza getPizza(String pizzaName){
+
+        for (Pizza pizza : pizzaMenu) {
+            if (pizza.getPizzaName().equalsIgnoreCase(pizzaName)) {
+                return pizza;
+            }
+        }
+        return null;
+    }
 
 
 

@@ -46,9 +46,11 @@ public class UserInterface {
     }
     // Melder en specifik ordrer som "Afsluttet"
     private void finishOrder() {
+        con.finishOrder();
     }
     // Viser en liste af ordrer
     private void showOrderList() {
+        con.showOrderList();
     }
     // Gemmer ordrelisten til en fil før systemet lukker
     private void exit() {
