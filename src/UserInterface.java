@@ -40,7 +40,7 @@ public class UserInterface {
                     break;
 
                 case "4":
-                    System.out.println("Du har valgt at se menukortet:");
+                    System.out.println("\t\t\t\t\t\t\t\t\tMenukort");
                     showMenu();
                     break;
 

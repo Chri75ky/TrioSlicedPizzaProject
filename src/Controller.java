@@ -40,6 +40,7 @@ public class Controller {
         // Henter en liste af ordrer fra OrderList
     }
 
+    // Metoden opretter StringBuilder objekt som retunere stringbuilder med alle linjerne i 'PizzaMenuCard.txt" filen
     public StringBuilder showMenu() throws FileNotFoundException {
         Scanner menu = new Scanner(new File("PizzaMenuCard.txt"));
         StringBuilder fullMenu = new StringBuilder();
