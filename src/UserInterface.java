@@ -1,9 +1,10 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class UserInterface {
     Controller con = new Controller();
    // Skaber run metoden, som skal modtage input fra bruger og derefter sende videre til Controller.
-    public void run(){
+    public void run() throws FileNotFoundException {
         boolean run = true;
         Scanner in = new Scanner(System.in);
 
@@ -15,6 +16,7 @@ public class UserInterface {
                     1) Oprette en ordre
                     2) Færdiggøre en ordre
                     3) Se bestillingsoversigt
+                    4) Se menukort
                                             
                     0) Luk programmet
                     """);
@@ -35,6 +37,11 @@ public class UserInterface {
                 case "3":
                     System.out.println("Du har valgt at se din eksisterende bestillingsoversigt");
                     showOrderList();
+                    break;
+
+                case "4":
+                    System.out.println("Du har valgt at se menukortet:");
+                    showMenu();
                     break;
 
                 case "0":
@@ -69,5 +76,11 @@ public class UserInterface {
         } else {
             //TODO tilføj en metode til at skabe en custom pizza
         }
+    }
+
+    // Viser menukortet
+    private void showMenu() throws FileNotFoundException {
+        StringBuilder menu = con.showMenu();
+        System.out.print(menu);
     }
 }

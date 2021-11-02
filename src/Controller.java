@@ -1,3 +1,9 @@
+import org.w3c.dom.ls.LSOutput;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Controller {
     private Order order;
     private PizzaMenu pm;
@@ -32,5 +38,15 @@ public class Controller {
 
     public void showOrderList() {
         // Henter en liste af ordrer fra OrderList
+    }
+
+    public StringBuilder showMenu() throws FileNotFoundException {
+        Scanner menu = new Scanner(new File("PizzaMenuCard.txt"));
+        StringBuilder fullMenu = new StringBuilder();
+
+        while (menu.hasNextLine()) {
+            fullMenu.append(menu.nextLine() + "\n");
+        }
+        return fullMenu;
     }
 }
