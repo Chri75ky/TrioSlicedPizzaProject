@@ -19,6 +19,21 @@ public class PizzaMenu {
         Pizza leBlissola = new Pizza("Le Blissola", "ingredients-", 61);
         Pizza venezia = new Pizza("Venezia", "ingredients-", 61);
         Pizza mafia = new Pizza("Mafia", "ingredients-", 61);
+       // Tilføjer alle pizzaer til pizzamenuen
+        pizzaMenu.add(vesuvio);
+        pizzaMenu.add(amerikaner);
+        pizzaMenu.add(cacciatore);
+        pizzaMenu.add(carbona);
+        pizzaMenu.add(dennis);
+        pizzaMenu.add(bertil);
+        pizzaMenu.add(silvia);
+        pizzaMenu.add(victoria);
+        pizzaMenu.add(toronfo);
+        pizzaMenu.add(capriciossa);
+        pizzaMenu.add(hawai);
+        pizzaMenu.add(leBlissola);
+        pizzaMenu.add(venezia);
+        pizzaMenu.add(mafia);
     }
 
     //tilføjer pizza til menu Arraylist
