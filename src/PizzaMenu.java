@@ -19,6 +19,22 @@ public class PizzaMenu {
         Pizza leBlissola = new Pizza("Le Blissola", "ingredients-", 61);
         Pizza venezia = new Pizza("Venezia", "ingredients-", 61);
         Pizza mafia = new Pizza("Mafia", "ingredients-", 61);
+
+        // adds pizza objects to pizzaMenu array
+        addPizza(vesuvio);
+        addPizza(amerikaner);
+        addPizza(cacciatore);
+        addPizza(carbona);
+        addPizza(dennis);
+        addPizza(bertil);
+        addPizza(silvia);
+        addPizza(victoria);
+        addPizza(toronfo);
+        addPizza(capriciossa);
+        addPizza(hawai);
+        addPizza(leBlissola);
+        addPizza(venezia);
+        addPizza(mafia);
     }
 
     //tilføjer pizza til menu Arraylist
@@ -31,7 +47,6 @@ public class PizzaMenu {
         pizzaMenu.remove(pizza);
     }
     public Pizza getPizza(String pizzaName){
-
         for (Pizza pizza : pizzaMenu) {
             if (pizza.getPizzaName().equalsIgnoreCase(pizzaName)) {
                 return pizza;

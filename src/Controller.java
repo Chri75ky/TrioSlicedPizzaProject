@@ -1,4 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,8 +25,8 @@ public class Controller {
     }
 
     public void addToOrderList(String pizzaName) {
-        System.out.println("LOL");
-        //order.createOrder(pizzaName);
+        //TODO tror ikke helt det bliver oprettet i orderlist endnu
+        order.createOrder(pizzaName);
     }
 
     public void finishOrder() {
