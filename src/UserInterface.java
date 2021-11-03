@@ -37,7 +37,7 @@ public class UserInterface {
 
                 case "3":
                     System.out.println("Du har valgt at se din eksisterende bestillingsoversigt");
-                    showOrderList();
+                    System.out.println(showOrderList());
                     break;
 
                 case "4":
@@ -75,15 +75,13 @@ public class UserInterface {
             System.out.println("Hvor mange minutter vil det tage før pizzaen kan afhentes?");
             int minutesTillPickup = input.nextInt();
             con.addToOrderList(pizzaName, minutesTillPickup);
-            System.out.println("The pizza has been added to the list!");
-            System.out.println("Do you wish to see the list? (Y/N)");
+            System.out.println("Ordren er blevet tilføjet til listen af ordre!");
+            System.out.println("Ønsker du at se listen? (J/N)");
             input.nextLine();
             String answer = input.nextLine();
-            if(answer.equalsIgnoreCase("y")){
+            if(answer.equalsIgnoreCase("j")){
                 System.out.println(showOrderList());
             }
-
-
         } else {
             System.out.println("Denne pizza eksisterer ikke i vores menu!");
             //TODO tilføj en metode til at skabe en custom pizza

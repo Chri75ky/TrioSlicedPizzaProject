@@ -27,10 +27,8 @@ public class Controller {
 
     public void addToOrderList(String pizzaName, int waitTime) {
         Pizza pizzaToAdd = pm.getPizza(pizzaName);
-        Order newOrder = new Order(pizzaToAdd, waitTime);
-        orderList.addToOrderList(newOrder);
+        orderList.createOrderAndAddToList(pizzaToAdd, waitTime, pizzaName);
         System.out.println("LOL");
-        //order.createOrder(pizzaName);
     }
 
 
