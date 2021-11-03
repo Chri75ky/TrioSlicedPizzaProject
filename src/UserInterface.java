@@ -53,8 +53,20 @@ public class UserInterface {
         }
     }
     // Melder en specifik ordrer som "Afsluttet"
-    private void finishOrder() {
-        con.finishOrder();
+    private void finishOrder() throws FileNotFoundException {
+        if (con.showOrderList().size() > 0) {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Skriv nummeret på ordren som skal afsluttes: ");
+            int ordreNr = input.nextInt() - 1;
+
+            if (con.showOrderList().size() >= ordreNr+1) {
+                con.finishOrder(ordreNr);
+            } else {
+                System.out.println("Ordre nummeret er ugyldigt.");
+            }
+        } else {
+            System.out.println("Der er ingen ordre på listen.");
+        }
     }
     // Viser en liste af ordrer
     private ArrayList<Order> showOrderList() {

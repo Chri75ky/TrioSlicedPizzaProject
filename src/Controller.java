@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,6 +9,7 @@ public class Controller {
     private Order order;
     private PizzaMenu pm;
     private OrderList orderList;
+    private int orderID;
 
     public Controller() {
         pm = new PizzaMenu();
@@ -32,8 +35,18 @@ public class Controller {
     }
 
 
-    public void finishOrder() {
-        // Meld en ordre som afsluttet
+    public void finishOrder(int ordreNr) throws FileNotFoundException {
+        File file = new File("ordreHistorik.txt");
+        PrintStream ps = new PrintStream(new FileOutputStream(file, true));
+        orderID++;
+
+        //Adds order to "ordreHistorik.txt"
+        //TODO skal nok laves lidt om hvis der er flere pizzaer i samme ordre - evt "for loop"
+        ps.append(orderID + "\t" + showOrderList().get(ordreNr).getOrderedPizza().getPizzaName() + "\t\t\t" + showOrderList().get(ordreNr).getOrderedPizza().getPrice() + " DKK" + "\n");
+
+        //Removes order at [ordreNr] from orderList
+        showOrderList().remove(ordreNr);
+
 
         // TODO Gem den afsluttede ordre til en fil ude fra systemet
     }
