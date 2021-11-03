@@ -54,9 +54,6 @@ public class Controller {
 
         //Removes order at [ordreNr] from orderList
         showOrderList().remove(ordreNr);
-
-
-        // TODO Gem den afsluttede ordre til en fil ude fra systemet
     }
 
     // Viser den nuværende liste af ordre til brugeren
