@@ -35,6 +35,10 @@ public class PizzaMenu {
         addPizza(leBlissola);
         addPizza(venezia);
         addPizza(mafia);
+
+        //oprettelse af ingredienser
+
+
     }
 
     //tilføjer pizza til menu Arraylist

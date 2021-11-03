@@ -75,6 +75,12 @@ public class UserInterface {
 
         } else {
             //TODO tilføj en metode til at skabe en custom pizza
+            System.out.println("""
+                    Skab din egen pizza
+                    -------------------
+                    Indtast venligst de ingredienser der skal være på den nye pizza""");
+            System.out.print("Ingredienser: ");
+            String ingredienser = input.nextLine();
         }
     }
 
