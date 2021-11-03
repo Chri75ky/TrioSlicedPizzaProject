@@ -1,15 +1,16 @@
-
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller {
     private Order order;
     private PizzaMenu pm;
+    private OrderList orderList;
 
     public Controller() {
-        order = new Order();
         pm = new PizzaMenu();
+        orderList = new OrderList();
     }
     public boolean findPizza(String pizzaName) {
         boolean isPizzaInMenu = false;
@@ -24,10 +25,12 @@ public class Controller {
         return pm.getPizza(pizzaName);
     }
 
-    public void addToOrderList(String pizzaName) {
-        //TODO tror ikke helt det bliver oprettet i orderlist endnu
-        order.createOrder(pizzaName);
+    public void addToOrderList(String pizzaName, int waitTime) {
+        Pizza pizzaToAdd = pm.getPizza(pizzaName);
+        orderList.createOrderAndAddToList(pizzaToAdd, waitTime, pizzaName);
+        System.out.println("LOL");
     }
+
 
     public void finishOrder() {
         // Meld en ordre som afsluttet
@@ -35,7 +38,8 @@ public class Controller {
         // TODO Gem den afsluttede ordre til en fil ude fra systemet
     }
 
-    public void showOrderList() {
+    public ArrayList<Order> showOrderList() {
+        return orderList.getOrderList();
         // Henter en liste af ordrer fra OrderList
     }
 

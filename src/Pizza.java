@@ -11,10 +11,18 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return pizzaName + ": " + ingredients + "............................." + price + ",-";
+        return pizzaName;
     }
 
     public String getPizzaName() {
         return pizzaName;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getIngredients() {
+        return ingredients;
     }
 }

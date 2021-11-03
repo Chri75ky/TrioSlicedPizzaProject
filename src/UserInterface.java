@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -36,7 +37,7 @@ public class UserInterface {
 
                 case "3":
                     System.out.println("Du har valgt at se din eksisterende bestillingsoversigt");
-                    showOrderList();
+                    System.out.println(showOrderList());
                     break;
 
                 case "4":
@@ -56,8 +57,8 @@ public class UserInterface {
         con.finishOrder();
     }
     // Viser en liste af ordrer
-    private void showOrderList() {
-        con.showOrderList();
+    private ArrayList<Order> showOrderList() {
+        return con.showOrderList();
     }
     // Gemmer ordrelisten til en fil før systemet lukker
     private void exit() {
@@ -71,9 +72,18 @@ public class UserInterface {
         String pizzaName = input.nextLine();
         // Tjekker hvorvidt det pizza navn brugeren indtaster findes i menuen og tilføjer pizzaen til listen af ordre.
         if(con.findPizza(pizzaName)){
-            con.addToOrderList(pizzaName);
-
+            System.out.println("Hvor mange minutter vil det tage før pizzaen kan afhentes?");
+            int minutesTillPickup = input.nextInt();
+            con.addToOrderList(pizzaName, minutesTillPickup);
+            System.out.println("Ordren er blevet tilføjet til listen af ordre!");
+            System.out.println("Ønsker du at se listen? (J/N)");
+            input.nextLine();
+            String answer = input.nextLine();
+            if(answer.equalsIgnoreCase("j")){
+                System.out.println(showOrderList());
+            }
         } else {
+            System.out.println("Denne pizza eksisterer ikke i vores menu!");
             //TODO tilføj en metode til at skabe en custom pizza
             System.out.println("""
                     Skab din egen pizza
