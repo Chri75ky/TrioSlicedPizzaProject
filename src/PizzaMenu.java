@@ -34,6 +34,34 @@ public class PizzaMenu {
         pizzaMenu.add(leBlissola);
         pizzaMenu.add(venezia);
         pizzaMenu.add(mafia);
+
+        //oprettelse af ingredienser
+        Ingredient kylling = new Ingredient("Kylling", Ingredient.Type.KØD);
+        Ingredient bacon = new Ingredient("Bacon", Ingredient.Type.KØD);
+        Ingredient kødsauce = new Ingredient("Kødsauce", Ingredient.Type.KØD);
+        Ingredient spaghetti = new Ingredient("Spaghetti", Ingredient.Type.KØD);
+        Ingredient cocktailpølser = new Ingredient("Cocktailpølser", Ingredient.Type.KØD);
+        Ingredient oksefars = new Ingredient("Oksefars", Ingredient.Type.KØD);
+        Ingredient kebab = new Ingredient("Kebab", Ingredient.Type.KØD);
+        Ingredient pepperoni = new Ingredient("Pepperoni", Ingredient.Type.KØD);
+        Ingredient rejer = new Ingredient("Rejer", Ingredient.Type.KØD);
+        Ingredient skinke = new Ingredient("Skinke", Ingredient.Type.KØD);
+        Ingredient ost = new Ingredient("Ost", Ingredient.Type.KØD);
+        Ingredient gorgonzola = new Ingredient("Gorgonzola", Ingredient.Type.KØD);
+        Ingredient sNd = new Ingredient("Salat & dressing", Ingredient.Type.KØD);
+        Ingredient ananas = new Ingredient("Ananas", Ingredient.Type.GRØNT);
+        Ingredient champignon = new Ingredient("Champignon", Ingredient.Type.GRØNT);
+        Ingredient chili = new Ingredient("Chili", Ingredient.Type.ANDET);
+        Ingredient hvidløg = new Ingredient("Hvidløg", Ingredient.Type.ANDET);
+        Ingredient oregano = new Ingredient("Oregano", Ingredient.Type.ANDET);
+        Ingredient jalapenos = new Ingredient("Jalapeños", Ingredient.Type.GRØNT);
+        Ingredient løg = new Ingredient("Løg", Ingredient.Type.GRØNT);
+        Ingredient oliven = new Ingredient("Oliven", Ingredient.Type.GRØNT);
+        Ingredient paprika = new Ingredient("Rød peber", Ingredient.Type.GRØNT);
+        Ingredient thousandIsland = new Ingredient("Thousand Island dressing", Ingredient.Type.DRESSING);
+        Ingredient dressing = new Ingredient("Creme Fraiche dressing", Ingredient.Type.DRESSING);
+        Ingredient bearnaise = new Ingredient("Bearnaise sauce", Ingredient.Type.DRESSING);
+        Ingredient hvdr = new Ingredient("Hvidløgsdressing", Ingredient.Type.DRESSING);
     }
 
     //tilføjer pizza til menu Arraylist

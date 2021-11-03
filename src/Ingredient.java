@@ -5,7 +5,8 @@ public class Ingredient {
     enum Type {
         KØD(12),
         GRØNT(7),
-        DRESSING(5);
+        DRESSING(5),
+        ANDET(0);
 
         private final int pris;
 
@@ -28,7 +29,7 @@ public class Ingredient {
 
 
     public String toStrings() {
-        return name + " koster " + type.pris + ",-";
+        return "Ekstra " + name + " koster " + type.pris + ",-";
     }
 }
 
