@@ -1,17 +1,20 @@
-import java.util.ArrayList;
 // TODO Gør det muligt at tilføje flere pizzaer til en enkelt ordre
 public class Order {
-private Pizza orderedPizza;
-private int waitTime;
-private String orderName;
-public Order(Pizza pizza, int waitTime, String orderName){
-    orderedPizza = pizza;
-    this.waitTime = waitTime;
-    this.orderName = orderName;
-}
-public Order(){
-}
-    public boolean createOrder(String pizzaName){
+    // Ordrer
+    private Pizza orderedPizza;
+    private int waitTime;
+    private String orderName;
+
+    public Order(Pizza pizza, int waitTime, String orderName) {
+        orderedPizza = pizza;
+        this.waitTime = waitTime;
+        this.orderName = orderName;
+    }
+
+    public Order() {
+    }
+
+    public boolean createOrder(String pizzaName) {
 
         return true;
     }

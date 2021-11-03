@@ -1,25 +1,55 @@
 import java.util.ArrayList;
 
 public class PizzaMenu {
-    private ArrayList<Pizza> pizzaMenu = new ArrayList<>();
+    private final ArrayList<Pizza> pizzaMenu = new ArrayList<>();
 
     public PizzaMenu() {
+        //oprettelse af ingredienser
+        Ingredient kylling = new Ingredient("kylling", Ingredient.Type.KØD);
+        Ingredient bacon = new Ingredient("bacon", Ingredient.Type.KØD);
+        Ingredient kødsauce = new Ingredient("kødsauce", Ingredient.Type.KØD);
+        Ingredient spaghetti = new Ingredient("spaghetti", Ingredient.Type.KØD);
+        Ingredient cocktailpølser = new Ingredient("cocktailpølser", Ingredient.Type.KØD);
+        Ingredient oksefars = new Ingredient("oksefars", Ingredient.Type.KØD);
+        Ingredient kebab = new Ingredient("kebab", Ingredient.Type.KØD);
+        Ingredient pepperoni = new Ingredient("pepperoni", Ingredient.Type.KØD);
+        Ingredient rejer = new Ingredient("rejer", Ingredient.Type.KØD);
+        Ingredient skinke = new Ingredient("skinke", Ingredient.Type.KØD);
+        Ingredient ost = new Ingredient("ost", Ingredient.Type.KØD);
+        Ingredient gorgonzola = new Ingredient("gorgonzola", Ingredient.Type.KØD);
+        Ingredient sNd = new Ingredient("salat & dressing", Ingredient.Type.KØD);
+        Ingredient ananas = new Ingredient("ananas", Ingredient.Type.GRØNT);
+        Ingredient champignon = new Ingredient("champignon", Ingredient.Type.GRØNT);
+        Ingredient chili = new Ingredient("chili", Ingredient.Type.ANDET);
+        Ingredient hvidløg = new Ingredient("hvidløg", Ingredient.Type.ANDET);
+        Ingredient oregano = new Ingredient("oregano", Ingredient.Type.ANDET);
+        Ingredient jalapenos = new Ingredient("jalapeños", Ingredient.Type.GRØNT);
+        Ingredient løg = new Ingredient("løg", Ingredient.Type.GRØNT);
+        Ingredient oliven = new Ingredient("oliven", Ingredient.Type.GRØNT);
+        Ingredient paprika = new Ingredient("rød peber", Ingredient.Type.GRØNT);
+        Ingredient thousandIsland = new Ingredient("thousand Island dressing", Ingredient.Type.DRESSING);
+        Ingredient dressing = new Ingredient("creme fraiche dressing", Ingredient.Type.DRESSING);
+        Ingredient bearnaise = new Ingredient("bearnaise sauce", Ingredient.Type.DRESSING);
+        Ingredient hvdr = new Ingredient("hvidløgsdressing", Ingredient.Type.DRESSING);
+        Ingredient tomatsauce = new Ingredient("tomatsauce", Ingredient.Type.DRESSING);
+
         //oprettelse af pizzaerne
-        Pizza vesuvio = new Pizza("Vesuvio", "ingredients-", 57);
-        Pizza amerikaner = new Pizza("Amerikaner", "ingredients-", 53);
-        Pizza cacciatore = new Pizza("Cacciatore", "ingredients-", 57);
-        Pizza carbona = new Pizza("Carbona", "ingredients-", 63);
-        Pizza dennis = new Pizza("Dennis", "ingredients-", 65);
-        Pizza bertil = new Pizza("Bertil", "ingredients-", 57);
-        Pizza silvia = new Pizza("Silvia", "ingredients-", 61);
-        Pizza victoria = new Pizza("Victoria", "ingredients-", 61);
-        Pizza toronfo = new Pizza("Toronfo", "ingredients-", 61);
-        Pizza capriciossa = new Pizza("Capriciossa", "ingredients-", 61);
-        Pizza hawai = new Pizza("Hawai", "ingredients-", 61);
-        Pizza leBlissola = new Pizza("Le Blissola", "ingredients-", 61);
-        Pizza venezia = new Pizza("Venezia", "ingredients-", 61);
-        Pizza mafia = new Pizza("Mafia", "ingredients-", 61);
-       // Tilføjer alle pizzaer til pizzamenuen
+        Pizza vesuvio = new Pizza("Vesuvio", tomatsauce, ost, skinke, oregano, 57);
+        Pizza amerikaner = new Pizza("Amerikaner", tomatsauce, ost, oksefars, oregano, 53);
+        Pizza cacciatore = new Pizza("Cacciatore", tomatsauce, ost, pepperoni, oregano, 57);
+        Pizza carbona = new Pizza("Carbona", tomatsauce, ost, kødsauce, spaghetti, cocktailpølser, oregano, 63);
+        Pizza dennis = new Pizza("Dennis", tomatsauce, ost, skinke, pepperoni, cocktailpølser, oregano, 65);
+        Pizza bertil = new Pizza("Bertil", tomatsauce, ost, bacon, oregano, 57);
+        Pizza silvia = new Pizza("Silvia", tomatsauce, ost, pepperoni, paprika, løg, oliven, oregano, 61);
+        Pizza victoria = new Pizza("Victoria", tomatsauce, ost, skinke, ananas, champignon, løg, oregano, 61);
+        Pizza toronfo = new Pizza("Toronfo", tomatsauce, ost, skinke, bacon, kebab, chili, oregano, 61);
+        Pizza capriciossa = new Pizza("Capriciossa", tomatsauce, ost, skinke, champignon, oregano, 61);
+        Pizza hawai = new Pizza("Hawai", tomatsauce, ost, skinke, ananas, oregano, 61);
+        Pizza leBlissola = new Pizza("Le Blissola", tomatsauce, ost, skinke, rejer, oregano, 61);
+        Pizza venezia = new Pizza("Venezia", tomatsauce, ost, skinke, bacon, oregano, 61);
+        Pizza mafia = new Pizza("Mafia", tomatsauce, ost, pepperoni, bacon, løg, oregano, 61);
+
+        // Tilføjer alle pizzaer til pizzamenuen
         pizzaMenu.add(vesuvio);
         pizzaMenu.add(amerikaner);
         pizzaMenu.add(cacciatore);
@@ -34,31 +64,6 @@ public class PizzaMenu {
         pizzaMenu.add(leBlissola);
         pizzaMenu.add(venezia);
         pizzaMenu.add(mafia);
-
-        //oprettelse af ingredienser
-        Ingredient kylling = new Ingredient("Kylling", Ingredient.Type.KØD);
-        Ingredient bacon = new Ingredient("Bacon", Ingredient.Type.KØD);
-        Ingredient cocktailpølser = new Ingredient("Cocktailpølser", Ingredient.Type.KØD);
-        Ingredient oksefars = new Ingredient("Oksefars", Ingredient.Type.KØD);
-        Ingredient kebab = new Ingredient("Kebab", Ingredient.Type.KØD);
-        Ingredient pepperoni = new Ingredient("Pepperoni", Ingredient.Type.KØD);
-        Ingredient rejer = new Ingredient("Rejer", Ingredient.Type.KØD);
-        Ingredient skinke = new Ingredient("Skinke", Ingredient.Type.KØD);
-        Ingredient ost = new Ingredient("Ost", Ingredient.Type.KØD);
-        Ingredient gorgonzola = new Ingredient("Gorgonzola", Ingredient.Type.KØD);
-        Ingredient sNd = new Ingredient("Salat & dressing", Ingredient.Type.KØD);
-        Ingredient ananas = new Ingredient("Ananas", Ingredient.Type.GRØNT);
-        Ingredient champignon = new Ingredient("Champignon", Ingredient.Type.GRØNT);
-        Ingredient chili = new Ingredient("Chili", Ingredient.Type.GRØNT);
-        Ingredient hvidløg = new Ingredient("Hvidløg", Ingredient.Type.GRØNT);
-        Ingredient jalapenos = new Ingredient("Jalapeños", Ingredient.Type.GRØNT);
-        Ingredient løg = new Ingredient("Løg", Ingredient.Type.GRØNT);
-        Ingredient oliven = new Ingredient("Oliven", Ingredient.Type.GRØNT);
-        Ingredient paprika = new Ingredient("Paprika", Ingredient.Type.GRØNT);
-        Ingredient thousandIsland = new Ingredient("Thousand Island dressing", Ingredient.Type.DRESSING);
-        Ingredient dressing = new Ingredient("Creme Fraiche dressing", Ingredient.Type.DRESSING);
-        Ingredient bearnaise = new Ingredient("Bearnaise sauce", Ingredient.Type.DRESSING);
-        Ingredient hvdr = new Ingredient("Hvidløgsdressing", Ingredient.Type.DRESSING);
     }
 
     //tilføjer pizza til menu Arraylist
@@ -67,10 +72,11 @@ public class PizzaMenu {
     }
 
     //fjerner pizza fra menu Arraylist
-    public void removePizza(Pizza pizza){
+    public void removePizza(Pizza pizza) {
         pizzaMenu.remove(pizza);
     }
-    public Pizza getPizza(String pizzaName){
+
+    public Pizza getPizza(String pizzaName) {
         for (Pizza pizza : pizzaMenu) {
             if (pizza.getPizzaName().equalsIgnoreCase(pizzaName)) {
                 return pizza;
@@ -78,7 +84,6 @@ public class PizzaMenu {
         }
         return null;
     }
-
 
 
 }
