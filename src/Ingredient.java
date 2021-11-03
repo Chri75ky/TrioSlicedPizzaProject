@@ -1,5 +1,5 @@
 public class Ingredient {
-    private String name;
+    private final String name;
     Type type;
 
     enum Type {
@@ -17,7 +17,7 @@ public class Ingredient {
 
         @Override
         public String toString() {
-            return  pris +
+            return pris +
                     ",-";
         }
     }

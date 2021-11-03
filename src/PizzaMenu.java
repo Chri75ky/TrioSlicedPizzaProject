@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class PizzaMenu {
-    private ArrayList<Pizza> pizzaMenu = new ArrayList<>();
+    private final ArrayList<Pizza> pizzaMenu = new ArrayList<>();
 
     public PizzaMenu() {
         //oprettelse af ingredienser
@@ -49,7 +49,7 @@ public class PizzaMenu {
         Pizza venezia = new Pizza("Venezia", tomatsauce, ost, skinke, bacon, oregano, 61);
         Pizza mafia = new Pizza("Mafia", tomatsauce, ost, pepperoni, bacon, løg, oregano, 61);
 
-       // Tilføjer alle pizzaer til pizzamenuen
+        // Tilføjer alle pizzaer til pizzamenuen
         pizzaMenu.add(vesuvio);
         pizzaMenu.add(amerikaner);
         pizzaMenu.add(cacciatore);
@@ -72,10 +72,11 @@ public class PizzaMenu {
     }
 
     //fjerner pizza fra menu Arraylist
-    public void removePizza(Pizza pizza){
+    public void removePizza(Pizza pizza) {
         pizzaMenu.remove(pizza);
     }
-    public Pizza getPizza(String pizzaName){
+
+    public Pizza getPizza(String pizzaName) {
         for (Pizza pizza : pizzaMenu) {
             if (pizza.getPizzaName().equalsIgnoreCase(pizzaName)) {
                 return pizza;
@@ -83,7 +84,6 @@ public class PizzaMenu {
         }
         return null;
     }
-
 
 
 }

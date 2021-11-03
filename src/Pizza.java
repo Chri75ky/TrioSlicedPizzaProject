@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Pizza {
-    private String pizzaName;
-    private int price;
+    private final String pizzaName;
+    private final int price;
     Ingredient ingredient;
     Ingredient ingredient1;
     Ingredient ingredient2;
