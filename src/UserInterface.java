@@ -1,4 +1,6 @@
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,6 +11,7 @@ public class UserInterface {
     public void run() throws FileNotFoundException {
         boolean run = true;
         Scanner in = new Scanner(System.in);
+        File file = new File("ordreHistorik.txt");
 
         while (run) {
             System.out.println("""
@@ -19,6 +22,7 @@ public class UserInterface {
                     2) Færdiggøre en ordre
                     3) Se bestillingsoversigt
                     4) Se menukort
+                    5) Slet ordre historik
                                             
                     0) Luk programmet
                     """);
@@ -33,7 +37,7 @@ public class UserInterface {
 
                 case "2":
                     System.out.println("Du har valgt at færdiggøre en eksisterende ordre");
-                    finishOrder();
+                    finishOrder(file);
                     break;
 
                 case "3":
@@ -46,6 +50,12 @@ public class UserInterface {
                     showMenu();
                     break;
 
+                case "5":
+                    System.out.println("Sletter ordre historik...");
+                    deleteOrderHistorik(file);
+                    System.out.println("Ordre historikken er slettet");
+                    break;
+
                 case "0":
                     System.out.println("Lukker programmet....");
                     exit();
@@ -55,7 +65,7 @@ public class UserInterface {
     }
 
     // Melder en specifik ordrer som "Afsluttet"
-    private void finishOrder() throws FileNotFoundException {
+    private void finishOrder(File file) throws FileNotFoundException {
         if (con.showOrderList().size() > 0) {
             System.out.println("Her er de nuværende ordrer i systemet: ");
             System.out.println(showOrderListInString());
@@ -64,7 +74,7 @@ public class UserInterface {
             int ordreNr = input.nextInt() - 1;
 
             if (con.showOrderList().size() >= ordreNr+1) {
-                con.finishOrder(ordreNr);
+                con.finishOrder(ordreNr, file);
             } else {
                 System.out.println("Ordre nummeret er ugyldigt.");
             }
@@ -123,5 +133,9 @@ public class UserInterface {
     private void showMenu() throws FileNotFoundException {
         StringBuilder menu = con.showMenu();
         System.out.print(menu);
+    }
+
+    private void deleteOrderHistorik(File file) throws FileNotFoundException {
+        new PrintStream(file).close();
     }
 }
