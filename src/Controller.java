@@ -11,7 +11,6 @@ public class Controller {
     private Order order;
     private final PizzaMenu pm;
     private final OrderList orderList;
-    private int orderID;
 
     public Controller() {
         // Opretter pizzaMenu og OrderList objekter sådan at controlleren kan give og modtage information
@@ -48,7 +47,14 @@ public class Controller {
 
     public void finishOrder(int ordreNr, File file) throws FileNotFoundException {
         PrintStream ps = new PrintStream(new FileOutputStream(file, true));
-        orderID++;
+        Scanner out = new Scanner(file);
+        int orderID = 1;
+
+
+        while (out.hasNextLine()) {
+            orderID++;
+            out.nextLine();
+        }
 
         //Adds order to "ordreHistorik.txt"
         //TODO skal nok laves lidt om hvis der er flere pizzaer i samme ordre - evt "for loop"
