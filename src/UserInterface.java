@@ -103,7 +103,7 @@ public class UserInterface {
             input.nextLine();
             String answer = input.nextLine();
             if (answer.equalsIgnoreCase("j")) {
-                System.out.println(showOrderList());
+                System.out.println(showOrderListInString());
             }
         } else {
             System.out.println("Denne pizza eksisterer ikke i vores menu!");
