@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -56,10 +58,27 @@ public class Controller {
         showOrderList().remove(ordreNr);
     }
 
+
     // Viser den nuværende liste af ordre til brugeren
     public ArrayList<Order> showOrderList() {
         return orderList.getOrderList();
         // Henter en liste af ordrer fra OrderList
+    }
+
+
+    // Methods creates stringbuilder over the orderList and returns a string with it.
+    public String showOrderListInString() {
+        ArrayList<Order> orderList = this.orderList.getOrderList();
+        StringBuilder str = new StringBuilder();
+
+        for (int i = 0; i < orderList.size(); i++) {
+            str.append((i+1) + ")\t");
+            str.append("Pizza: " + orderList.get(i).getOrderedPizza().getPizzaName() + "\t\t");
+            str.append("Wait time: " + orderList.get(i).getWaitTime() + "\n");
+        }
+
+        String showOrderList = str.toString();
+        return showOrderList;
     }
 
     // Metoden opretter StringBuilder objekt som returnere stringBuilder med alle linjerne i 'PizzaMenuCard.txt" filen

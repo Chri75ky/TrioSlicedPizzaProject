@@ -38,7 +38,7 @@ public class UserInterface {
 
                 case "3":
                     System.out.println("Du har valgt at se din eksisterende bestillingsoversigt");
-                    System.out.println(showOrderList());
+                    System.out.println(showOrderListInString());
                     break;
 
                 case "4":
@@ -71,9 +71,15 @@ public class UserInterface {
         }
     }
 
+
     // Viser en liste af ordrer
     private ArrayList<Order> showOrderList() {
         return con.showOrderList();
+    }
+
+    //returnere en liste af ordrer ud fra stringBuilder
+    private String showOrderListInString() {
+        return con.showOrderListInString();
     }
 
     // Gemmer ordrelisten til en fil før systemet lukker
