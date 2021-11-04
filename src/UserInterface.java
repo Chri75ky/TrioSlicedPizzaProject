@@ -91,13 +91,13 @@ public class UserInterface {
         Scanner input = new Scanner(System.in);
 
         System.out.println("For at kunne oprette din ordrer, skal vi bruge nogle informationer: ");
-        System.out.println("Navnet på din pizza: ");
-        String pizzaName = input.nextLine();
+        System.out.println("Nummeret på din pizza: ");
+        int pizzaPlacement = input.nextInt();
         // Tjekker hvorvidt det pizza navn brugeren indtaster findes i menuen og tilføjer pizzaen til listen af ordre.
-        if (con.findPizza(pizzaName)) {
+        if (con.findPizza(pizzaPlacement)) {
             System.out.println("Hvor mange minutter vil det tage før pizzaen kan afhentes?");
             int minutesTillPickup = input.nextInt();
-            con.addToOrderList(pizzaName, minutesTillPickup);
+            con.addToOrderList(pizzaPlacement, minutesTillPickup);
             System.out.println("Ordren er blevet tilføjet til listen af ordre!");
             System.out.println("Ønsker du at se listen? (J/N)");
             input.nextLine();

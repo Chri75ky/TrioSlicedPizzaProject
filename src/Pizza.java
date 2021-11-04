@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Pizza {
     private final String pizzaName;
     private final int price;
+    private int placement;
     Ingredient ingredient;
     Ingredient ingredient1;
     Ingredient ingredient2;
@@ -11,23 +12,25 @@ public class Pizza {
     Ingredient ingredient5;
     Ingredient ingredient6;
 
-    public Pizza(String pizzaName, Ingredient ingredient, int price) {
+    public Pizza(String pizzaName, Ingredient ingredient, int price, int placement) {
         this.pizzaName = pizzaName;
         this.ingredient = ingredient;
         this.price = price;
+        this.placement = placement;
 
     }
 
-    public Pizza(String pizzaName, Ingredient ingredient, Ingredient ingredient1, Ingredient ingredient2, Ingredient ingredient3, int price) {
+    public Pizza(String pizzaName, Ingredient ingredient, Ingredient ingredient1, Ingredient ingredient2, Ingredient ingredient3, int price, int placement) {
         this.pizzaName = pizzaName;
         this.ingredient = ingredient;
         this.ingredient1 = ingredient1;
         this.ingredient2 = ingredient2;
         this.ingredient3 = ingredient3;
         this.price = price;
+        this.placement = placement;
     }
 
-    public Pizza(String pizzaName, Ingredient ingredient, Ingredient ingredient1, Ingredient ingredient2, Ingredient ingredient3, Ingredient ingredient4, Ingredient ingredient5, int price) {
+    public Pizza(String pizzaName, Ingredient ingredient, Ingredient ingredient1, Ingredient ingredient2, Ingredient ingredient3, Ingredient ingredient4, Ingredient ingredient5, int price, int placement) {
         this.pizzaName = pizzaName;
         this.ingredient = ingredient;
         this.ingredient1 = ingredient1;
@@ -36,9 +39,10 @@ public class Pizza {
         this.ingredient4 = ingredient4;
         this.ingredient5 = ingredient5;
         this.price = price;
+        this.placement = placement;
     }
 
-    public Pizza(String pizzaName, Ingredient ingredient, Ingredient ingredient1, Ingredient ingredient2, Ingredient ingredient3, Ingredient ingredient4, Ingredient ingredient5, Ingredient ingredient6, int price) {
+    public Pizza(String pizzaName, Ingredient ingredient, Ingredient ingredient1, Ingredient ingredient2, Ingredient ingredient3, Ingredient ingredient4, Ingredient ingredient5, Ingredient ingredient6, int price, int placement) {
         this.pizzaName = pizzaName;
         this.ingredient = ingredient;
         this.ingredient1 = ingredient1;
@@ -48,9 +52,10 @@ public class Pizza {
         this.ingredient5 = ingredient5;
         this.ingredient6 = ingredient6;
         this.price = price;
+        this.placement = placement;
     }
 
-    public Pizza(String pizzaName, Ingredient ingredient, Ingredient ingredient1, Ingredient ingredient2, Ingredient ingredient3, Ingredient ingredient4, int price) {
+    public Pizza(String pizzaName, Ingredient ingredient, Ingredient ingredient1, Ingredient ingredient2, Ingredient ingredient3, Ingredient ingredient4, int price, int placement) {
         this.pizzaName = pizzaName;
         this.ingredient = ingredient;
         this.ingredient1 = ingredient1;
@@ -58,6 +63,7 @@ public class Pizza {
         this.ingredient3 = ingredient3;
         this.ingredient4 = ingredient4;
         this.price = price;
+        this.placement = placement;
     }
 
     @Override
@@ -67,6 +73,10 @@ public class Pizza {
 
     public String getPizzaName() {
         return pizzaName;
+    }
+
+    public int getPlacement(){
+        return placement;
     }
 
     public int getPrice() {
