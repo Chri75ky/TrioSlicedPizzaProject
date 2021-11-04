@@ -21,9 +21,9 @@ public class Controller {
     }
 
     // Tjekker menuen for pizza med navn indtastet af bruger
-    public boolean findPizza(String pizzaName) {
+    public boolean findPizza(int pizzaPlacement) {
         boolean isPizzaInMenu = false;
-        if (pm.getPizza(pizzaName) != null) {
+        if (pm.getPizza(pizzaPlacement) != null) {
             isPizzaInMenu = true;
         } else {
             return isPizzaInMenu;
@@ -34,14 +34,15 @@ public class Controller {
     // Returnerer en pizza med samme navn som det indtastet af bruger, er ikke
     // sikker på hvornår den skal bruges da den bruges i addToOrderList
     // men beholder den indtil videre :D
-    public Pizza getPizza(String pizzaName) {
-        return pm.getPizza(pizzaName);
+    public Pizza getPizza(int pizzaPlacement) {
+        return pm.getPizza(pizzaPlacement);
     }
 
     // Tager i mod et navn og estimeret ventetid fra bruger og skaber en ordre med de informationer
-    public void addToOrderList(String pizzaName, int waitTime) {
-        Pizza pizzaToAdd = pm.getPizza(pizzaName);
-        orderList.createOrderAndAddToList(pizzaToAdd, waitTime, pizzaName);
+    public void addToOrderList(int pizzaPlacement, int waitTime) {
+        Pizza pizzaToAdd = pm.getPizza(pizzaPlacement);
+        String nameOfPizza = pizzaToAdd.getPizzaName();
+        orderList.createOrderAndAddToList(pizzaToAdd, waitTime, nameOfPizza);
     }
 
 

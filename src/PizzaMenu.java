@@ -34,20 +34,20 @@ public class PizzaMenu {
         Ingredient tomatsauce = new Ingredient("tomatsauce", Ingredient.Type.DRESSING);
 
         //oprettelse af pizzaerne
-        Pizza vesuvio = new Pizza("Vesuvio", tomatsauce, ost, skinke, oregano, 57);
-        Pizza amerikaner = new Pizza("Amerikaner", tomatsauce, ost, oksefars, oregano, 53);
-        Pizza cacciatore = new Pizza("Cacciatore", tomatsauce, ost, pepperoni, oregano, 57);
-        Pizza carbona = new Pizza("Carbona", tomatsauce, ost, kødsauce, spaghetti, cocktailpølser, oregano, 63);
-        Pizza dennis = new Pizza("Dennis", tomatsauce, ost, skinke, pepperoni, cocktailpølser, oregano, 65);
-        Pizza bertil = new Pizza("Bertil", tomatsauce, ost, bacon, oregano, 57);
-        Pizza silvia = new Pizza("Silvia", tomatsauce, ost, pepperoni, paprika, løg, oliven, oregano, 61);
-        Pizza victoria = new Pizza("Victoria", tomatsauce, ost, skinke, ananas, champignon, løg, oregano, 61);
-        Pizza toronfo = new Pizza("Toronfo", tomatsauce, ost, skinke, bacon, kebab, chili, oregano, 61);
-        Pizza capriciossa = new Pizza("Capriciossa", tomatsauce, ost, skinke, champignon, oregano, 61);
-        Pizza hawai = new Pizza("Hawai", tomatsauce, ost, skinke, ananas, oregano, 61);
-        Pizza leBlissola = new Pizza("Le Blissola", tomatsauce, ost, skinke, rejer, oregano, 61);
-        Pizza venezia = new Pizza("Venezia", tomatsauce, ost, skinke, bacon, oregano, 61);
-        Pizza mafia = new Pizza("Mafia", tomatsauce, ost, pepperoni, bacon, løg, oregano, 61);
+        Pizza vesuvio = new Pizza("Vesuvio", tomatsauce, ost, skinke, oregano, 57, 1);
+        Pizza amerikaner = new Pizza("Amerikaner", tomatsauce, ost, oksefars, oregano, 53, 2);
+        Pizza cacciatore = new Pizza("Cacciatore", tomatsauce, ost, pepperoni, oregano, 57, 3);
+        Pizza carbona = new Pizza("Carbona", tomatsauce, ost, kødsauce, spaghetti, cocktailpølser, oregano, 63, 4);
+        Pizza dennis = new Pizza("Dennis", tomatsauce, ost, skinke, pepperoni, cocktailpølser, oregano, 65, 5);
+        Pizza bertil = new Pizza("Bertil", tomatsauce, ost, bacon, oregano, 57, 6);
+        Pizza silvia = new Pizza("Silvia", tomatsauce, ost, pepperoni, paprika, løg, oliven, oregano, 61, 7);
+        Pizza victoria = new Pizza("Victoria", tomatsauce, ost, skinke, ananas, champignon, løg, oregano, 61, 8);
+        Pizza toronfo = new Pizza("Toronfo", tomatsauce, ost, skinke, bacon, kebab, chili, oregano, 61, 9);
+        Pizza capriciossa = new Pizza("Capriciossa", tomatsauce, ost, skinke, champignon, oregano, 61, 10);
+        Pizza hawai = new Pizza("Hawai", tomatsauce, ost, skinke, ananas, oregano, 61, 11);
+        Pizza leBlissola = new Pizza("Le Blissola", tomatsauce, ost, skinke, rejer, oregano, 61, 12);
+        Pizza venezia = new Pizza("Venezia", tomatsauce, ost, skinke, bacon, oregano, 61, 13);
+        Pizza mafia = new Pizza("Mafia", tomatsauce, ost, pepperoni, bacon, løg, oregano, 61, 14);
 
         // Tilføjer alle pizzaer til pizzamenuen
         pizzaMenu.add(vesuvio);
@@ -76,9 +76,10 @@ public class PizzaMenu {
         pizzaMenu.remove(pizza);
     }
 
-    public Pizza getPizza(String pizzaName) {
+
+    public Pizza getPizza(int pizzaPlacement) {
         for (Pizza pizza : pizzaMenu) {
-            if (pizza.getPizzaName().equalsIgnoreCase(pizzaName)) {
+            if (pizza.getPlacement() == pizzaPlacement) {
                 return pizza;
             }
         }
