@@ -46,8 +46,7 @@ public class Controller {
     }
 
 
-    public void finishOrder(int ordreNr) throws FileNotFoundException {
-        File file = new File("ordreHistorik.txt");
+    public void finishOrder(int ordreNr, File file) throws FileNotFoundException {
         PrintStream ps = new PrintStream(new FileOutputStream(file, true));
         orderID++;
 
