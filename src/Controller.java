@@ -66,7 +66,7 @@ public class Controller {
     }
 
 
-    // Methods creates stringbuilder over the orderList and returns a string with it.
+    // Methods creates stringbuilder over the orderList and returns a string with it. //TODO skal også ændres lidt hvis flere pizzaer kan bestilles i samme ordre
     public String showOrderListInString() {
         ArrayList<Order> orderList = this.orderList.getOrderList();
         StringBuilder str = new StringBuilder();
