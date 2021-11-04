@@ -57,6 +57,8 @@ public class UserInterface {
     // Melder en specifik ordrer som "Afsluttet"
     private void finishOrder() throws FileNotFoundException {
         if (con.showOrderList().size() > 0) {
+            System.out.println("Her er de nuværende ordrer i systemet: ");
+            System.out.println(showOrderListInString());
             Scanner input = new Scanner(System.in);
             System.out.println("Skriv nummeret på ordren som skal afsluttes: ");
             int ordreNr = input.nextInt() - 1;

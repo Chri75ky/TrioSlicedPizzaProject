@@ -14,17 +14,9 @@ public class Order {
     public Order() {
     }
 
-    public boolean createOrder(String pizzaName) {
-
-        return true;
-    }
-
     public Pizza getOrderedPizza() {
         return orderedPizza;
     }
-    /*public void addPizzaToOrder(Pizza pizza){
-    orderedPizza.add(pizza);
-    }*/
 
     public int getWaitTime() {
         return waitTime;
