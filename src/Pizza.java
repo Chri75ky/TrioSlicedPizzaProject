@@ -1,9 +1,7 @@
-import java.util.ArrayList;
-
 public class Pizza {
     private final String pizzaName;
     private final int price;
-    private int placement;
+    private final int placement;
     Ingredient ingredient;
     Ingredient ingredient1;
     Ingredient ingredient2;
@@ -12,14 +10,8 @@ public class Pizza {
     Ingredient ingredient5;
     Ingredient ingredient6;
 
-    public Pizza(String pizzaName, Ingredient ingredient, int price, int placement) {
-        this.pizzaName = pizzaName;
-        this.ingredient = ingredient;
-        this.price = price;
-        this.placement = placement;
-
-    }
-
+    // Skaber flere konstruktører,
+    // sådan at forskellige pizzaer kan oprettes med et forskelligt antal ingredienser.
     public Pizza(String pizzaName, Ingredient ingredient, Ingredient ingredient1, Ingredient ingredient2, Ingredient ingredient3, int price, int placement) {
         this.pizzaName = pizzaName;
         this.ingredient = ingredient;
@@ -75,7 +67,7 @@ public class Pizza {
         return pizzaName;
     }
 
-    public int getPlacement(){
+    public int getPlacement() {
         return placement;
     }
 

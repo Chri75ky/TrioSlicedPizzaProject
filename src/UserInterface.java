@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -73,7 +72,7 @@ public class UserInterface {
             System.out.println("Skriv nummeret på ordren som skal afsluttes: ");
             int ordreNr = input.nextInt() - 1;
 
-            if (con.showOrderList().size() >= ordreNr+1) {
+            if (con.showOrderList().size() >= ordreNr + 1) {
                 con.finishOrder(ordreNr, file);
             } else {
                 System.out.println("Ordre nummeret er ugyldigt.");
@@ -81,12 +80,6 @@ public class UserInterface {
         } else {
             System.out.println("Der er ingen ordre på listen.");
         }
-    }
-
-
-    // Viser en liste af ordrer
-    private ArrayList<Order> showOrderList() {
-        return con.showOrderList();
     }
 
     //returnere en liste af ordrer ud fra stringBuilder
@@ -109,6 +102,7 @@ public class UserInterface {
         if (con.findPizza(pizzaPlacement)) {
             System.out.println("Hvor mange minutter vil det tage før pizzaen kan afhentes?");
             int minutesTillPickup = input.nextInt();
+            // Tilføjer den ønskede pizza til ordrelisten med den estimerede ventetid.
             con.addToOrderList(pizzaPlacement, minutesTillPickup);
             System.out.println("Ordren er blevet tilføjet til listen af ordre!");
             System.out.println("Ønsker du at se listen? (J/N)");
@@ -116,16 +110,11 @@ public class UserInterface {
             String answer = input.nextLine();
             if (answer.equalsIgnoreCase("j")) {
                 System.out.println(showOrderListInString());
+            } else {
+                System.out.println("Returnerer til hovedmenuen...");
             }
         } else {
             System.out.println("Denne pizza eksisterer ikke i vores menu!");
-            //TODO tilføj en metode til at skabe en custom pizza
-            System.out.println("""
-                    Skab din egen pizza
-                    -------------------
-                    Indtast venligst de ingredienser der skal være på den nye pizza""");
-            System.out.print("Ingredienser: ");
-            String ingredienser = input.nextLine();
         }
     }
 

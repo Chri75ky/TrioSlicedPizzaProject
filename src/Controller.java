@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -8,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller {
-    private Order order;
     private final PizzaMenu pm;
     private final OrderList orderList;
 
@@ -30,21 +27,15 @@ public class Controller {
         return isPizzaInMenu;
     }
 
-    // Returnerer en pizza med samme navn som det indtastet af bruger, er ikke
-    // sikker på hvornår den skal bruges da den bruges i addToOrderList
-    // men beholder den indtil videre :D
-    public Pizza getPizza(int pizzaPlacement) {
-        return pm.getPizza(pizzaPlacement);
-    }
-
-    // Tager i mod et navn og estimeret ventetid fra bruger og skaber en ordre med de informationer
+    // Tager i mod en position af en pizza og estimeret ventetid fra bruger
+    // og skaber en ordre med de informationer
     public void addToOrderList(int pizzaPlacement, int waitTime) {
         Pizza pizzaToAdd = pm.getPizza(pizzaPlacement);
         String nameOfPizza = pizzaToAdd.getPizzaName();
         orderList.createOrderAndAddToList(pizzaToAdd, waitTime, nameOfPizza);
     }
 
-
+    // Fjerner en ordre og tilføjer den til fil udenfor programmet
     public void finishOrder(int ordreNr, File file) throws FileNotFoundException {
         PrintStream ps = new PrintStream(new FileOutputStream(file, true));
         Scanner out = new Scanner(file);
@@ -56,11 +47,10 @@ public class Controller {
             out.nextLine();
         }
 
-        //Adds order to "ordreHistorik.txt"
-        //TODO skal nok laves lidt om hvis der er flere pizzaer i samme ordre - evt "for loop"
+        // Tilføjer ordre til "ordreHistorik.txt"
         ps.append(orderID + "\t" + showOrderList().get(ordreNr).getOrderedPizza().getPizzaName() + "\t\t\t" + showOrderList().get(ordreNr).getOrderedPizza().getPrice() + " DKK" + "\n");
 
-        //Removes order at [ordreNr] from orderList
+        // Fjerner ordre af [ordreNr] fra orderList
         showOrderList().remove(ordreNr);
     }
 
@@ -72,15 +62,15 @@ public class Controller {
     }
 
 
-    // Methods creates stringbuilder over the orderList and returns a string with it. //TODO skal også ændres lidt hvis flere pizzaer kan bestilles i samme ordre
+    // Skaber en stringBuilder som paster listen ud som String
     public String showOrderListInString() {
         ArrayList<Order> orderList = this.orderList.getOrderList();
         StringBuilder str = new StringBuilder();
 
         for (int i = 0; i < orderList.size(); i++) {
-            str.append((i+1) + ")\t");
+            str.append((i + 1) + ")\t");
             str.append("Pizza: " + orderList.get(i).getOrderedPizza().getPizzaName() + "\t\t");
-            str.append("Wait time: " + orderList.get(i).getWaitTime() + "\n");
+            str.append("Ventetid: " + orderList.get(i).getWaitTime() + "\n");
         }
 
         String showOrderList = str.toString();

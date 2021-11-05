@@ -1,4 +1,3 @@
-// TODO Gør det muligt at tilføje flere pizzaer til en enkelt ordre
 public class Order {
     // Ordrer
     private Pizza orderedPizza;
@@ -9,9 +8,6 @@ public class Order {
         orderedPizza = pizza;
         this.waitTime = waitTime;
         this.orderName = orderName;
-    }
-
-    public Order() {
     }
 
     public Pizza getOrderedPizza() {

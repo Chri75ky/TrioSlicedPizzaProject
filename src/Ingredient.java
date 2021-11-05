@@ -1,4 +1,12 @@
 public class Ingredient {
+    /* Klassen ingredient, skulle være brugt som en måde til at
+    kunne oprette custom pizzaer hvor en pris ville blive lavet ud fra en kombination af
+    de forskellige toppings priser sammensat med en "base cost"
+    for selve bunden af pizzaen.
+    Der har været flere forsøg på at lave metoden, men indtil
+    videre har vi ikke haft succes. Klassen bliver her dog da det passer bedre
+    med enkelte ingredienser i stedet for en String og da klassen fungerer som en skal.
+     */
     private final String name;
     Type type;
 

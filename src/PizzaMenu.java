@@ -4,7 +4,8 @@ public class PizzaMenu {
     private final ArrayList<Pizza> pizzaMenu = new ArrayList<>();
 
     public PizzaMenu() {
-        //oprettelse af ingredienser
+        //Oprettelse af ingredienser til brug i pizzaer, ekstra ingredienser skabt til mulig
+        // udvidelse med custom pizzaer
         Ingredient kylling = new Ingredient("kylling", Ingredient.Type.KØD);
         Ingredient bacon = new Ingredient("bacon", Ingredient.Type.KØD);
         Ingredient kødsauce = new Ingredient("kødsauce", Ingredient.Type.KØD);
@@ -33,7 +34,7 @@ public class PizzaMenu {
         Ingredient hvdr = new Ingredient("hvidløgsdressing", Ingredient.Type.DRESSING);
         Ingredient tomatsauce = new Ingredient("tomatsauce", Ingredient.Type.DRESSING);
 
-        //oprettelse af pizzaerne
+        // Oprettelse af pizzaerne
         Pizza vesuvio = new Pizza("Vesuvio", tomatsauce, ost, skinke, oregano, 57, 1);
         Pizza amerikaner = new Pizza("Amerikaner", tomatsauce, ost, oksefars, oregano, 53, 2);
         Pizza cacciatore = new Pizza("Cacciatore", tomatsauce, ost, pepperoni, oregano, 57, 3);
@@ -66,17 +67,7 @@ public class PizzaMenu {
         pizzaMenu.add(mafia);
     }
 
-    //tilføjer pizza til menu Arraylist
-    public void addPizza(Pizza pizza) {
-        pizzaMenu.add(pizza);
-    }
-
-    //fjerner pizza fra menu Arraylist
-    public void removePizza(Pizza pizza) {
-        pizzaMenu.remove(pizza);
-    }
-
-
+    // Giver et pizza objekt ud fra pizzaens placering som er indtastet af brugeren
     public Pizza getPizza(int pizzaPlacement) {
         for (Pizza pizza : pizzaMenu) {
             if (pizza.getPlacement() == pizzaPlacement) {

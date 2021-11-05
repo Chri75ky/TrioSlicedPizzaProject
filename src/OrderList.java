@@ -1,49 +1,41 @@
 import java.util.ArrayList;
 
 public class OrderList {
-    private final Order order;
     private final ArrayList<Order> orderList = new ArrayList<>();
 
-    public OrderList() {
-        order = new Order();
-    }
-
+    // Returnerer ordrelisten
     public ArrayList<Order> getOrderList() {
         return orderList;
     }
 
-    public void addToOrderList(Order order) {
-        orderList.add(order);
-    }
-
+    // Skaber en ordrer med informationer fra brugeren og placerer dem i listen af ordrer
     public void createOrderAndAddToList(Pizza pizzaToAdd, int waitTime, String orderName) {
         Order newOrder = new Order(pizzaToAdd, waitTime, orderName);
         placeOrderCorrectInList(newOrder);
     }
 
-
-    //Places order in orderList corresponding to waitTime (lowest wait time will be placed first)
+    // Placerer ordren i orderList i forhold til ventetiden til ventetiden (mindste ventetid bliver placeret øverst)
     public void placeOrderCorrectInList(Order newOrder) {
         if (orderList.size() >= 1) {
             for (int i = 0; i < orderList.size(); i++) {
 
                 if (orderList.get(i).getWaitTime() == newOrder.getWaitTime()) {
-                    // Adds newOrder to orderList at index i+1 = if order at i and newOrder has same waittime
-                    orderList.add(i+1, newOrder);
+                    // Tilføjer den nye ordre til OrderList på index i+1 = hvis ordren ved i og den nye ordre har samme ventetid
+                    orderList.add(i + 1, newOrder);
                     break;
 
                 } else if (orderList.get(i).getWaitTime() > newOrder.getWaitTime()) {
-                    // Adds newOrder to orderList at index i = first time a order elements waittime is higher than newOrders waittime
+                    // Tilføjer den nye ordre til OrderList ved index i = første gang en ordres ventetid er højere end den nye ordres ventetid
                     orderList.add(i, newOrder);
                     break;
-                } else if ((i+1) == orderList.size() && orderList.get(i).getWaitTime() < newOrder.getWaitTime()) {
-                    // If orderLists last element still has a lower waittime than newOrder, then newOrder will just be added to orderList
+                } else if ((i + 1) == orderList.size() && orderList.get(i).getWaitTime() < newOrder.getWaitTime()) {
+                    // Hvis OrderList sidste element stadig har en lavere ventetid end den nye ordre, bliver den bare tilføjet til listen
                     orderList.add(newOrder);
                     break;
                 }
             }
         } else {
-            // If orderList has no objects a newOrder will just be placed as the first element
+            // Hvis ordrelisten ikke har nogle ordrer bliver den nye ordrer bare placeret som første element
             orderList.add(newOrder);
         }
     }
