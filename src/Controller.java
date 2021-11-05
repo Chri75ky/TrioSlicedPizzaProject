@@ -66,11 +66,14 @@ public class Controller {
     public String showOrderListInString() {
         ArrayList<Order> orderList = this.orderList.getOrderList();
         StringBuilder str = new StringBuilder();
-
-        for (int i = 0; i < orderList.size(); i++) {
-            str.append((i + 1) + ")\t");
-            str.append(Colour.TEXT_YELLOW + "Pizza: " + Colour.TEXT_RESET + Colour.TEXT_GREEN + orderList.get(i).getOrderedPizza().getPizzaName() + Colour.TEXT_RESET + "\t\t");
-            str.append(Colour.TEXT_YELLOW + "Ventetid: " + Colour.TEXT_RESET + Colour.TEXT_GREEN + orderList.get(i).getWaitTime() + Colour.TEXT_RESET + "\n");
+        if (orderList.size() > 0) {
+            for (int i = 0; i < orderList.size(); i++) {
+                str.append((i + 1) + ")\t");
+                str.append(Colour.TEXT_YELLOW + "Pizza: " + Colour.TEXT_RESET + Colour.TEXT_GREEN + orderList.get(i).getOrderedPizza().getPizzaName() + Colour.TEXT_RESET + "\t\t");
+                str.append(Colour.TEXT_YELLOW + "Ventetid: " + Colour.TEXT_RESET + Colour.TEXT_GREEN + orderList.get(i).getWaitTime() + " minutter" + Colour.TEXT_RESET + "\n");
+            }
+        } else {
+            return Colour.TEXT_RED + "Der er ikke nogle ordrer i listen!" + Colour.TEXT_RESET;
         }
 
         String showOrderList = str.toString();
