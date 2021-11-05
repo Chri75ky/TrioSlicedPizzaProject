@@ -101,9 +101,9 @@ public class UserInterface {
         // Tjekker hvorvidt det pizza navn brugeren indtaster findes i menuen og tilføjer pizzaen til listen af ordre.
         if (con.findPizza(pizzaPlacement)) {
             System.out.println(Colour.TEXT_RED + "Hvor mange minutter vil det tage før pizzaen kan afhentes?" + Colour.TEXT_RESET);
-            int minutesTillPickup = input.nextInt();
+            int waitTime = input.nextInt();
             // Tilføjer den ønskede pizza til ordrelisten med den estimerede ventetid.
-            con.addToOrderList(pizzaPlacement, minutesTillPickup);
+            con.addToOrderList(pizzaPlacement, waitTime);
             System.out.println(Colour.TEXT_YELLOW + "Ordren er blevet tilføjet til listen af ordre!");
             System.out.println("Ønsker du at se listen? (J/N)" + Colour.TEXT_RESET);
             input.nextLine();

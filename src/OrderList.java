@@ -9,8 +9,8 @@ public class OrderList {
     }
 
     // Skaber en ordrer med informationer fra brugeren og placerer dem i listen af ordrer
-    public void createOrderAndAddToList(Pizza pizzaToAdd, int waitTime, String orderName) {
-        Order newOrder = new Order(pizzaToAdd, waitTime, orderName);
+    public void createOrderAndAddToList(Pizza pizzaToAdd, int waitTime, String nameOfPizza) {
+        Order newOrder = new Order(pizzaToAdd, waitTime, nameOfPizza);
         placeOrderCorrectInList(newOrder);
     }
 
