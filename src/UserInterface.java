@@ -13,7 +13,7 @@ public class UserInterface {
         File file = new File("ordreHistorik.txt");
 
         while (run) {
-            System.out.println("""
+            System.out.println(Colour.TEXT_YELLOW + """
                                     
                     Velkommen til Marios Pizza, hvad ønsker de at gøre:
                                             
@@ -24,39 +24,39 @@ public class UserInterface {
                     5) Slet ordre historik
                                             
                     0) Luk programmet
-                    """);
+                    """ + Colour.TEXT_RESET);
 
             String userInput = in.nextLine();
             // Modtager bruger input og finder den korrekte metode
             switch (userInput) {
                 case "1":
-                    System.out.println("Du har valgt at oprette en ordre");
+                    System.out.println(Colour.TEXT_GREEN + "Du har valgt at oprette en ordre" + Colour.TEXT_RESET);
                     createOrder();
                     break;
 
                 case "2":
-                    System.out.println("Du har valgt at færdiggøre en eksisterende ordre");
+                    System.out.println(Colour.TEXT_GREEN + "Du har valgt at færdiggøre en eksisterende ordre" + Colour.TEXT_RESET);
                     finishOrder(file);
                     break;
 
                 case "3":
-                    System.out.println("Du har valgt at se din eksisterende bestillingsoversigt");
+                    System.out.println(Colour.TEXT_GREEN + "Du har valgt at se din eksisterende bestillingsoversigt" + Colour.TEXT_RESET);
                     System.out.println(showOrderListInString());
                     break;
 
                 case "4":
-                    System.out.println("\t\t\t\t\t\t\t\t\tMenukort");
+                    System.out.println(Colour.TEXT_GREEN + "\t\t\t\t\t\t\t\t\tMenukort" + Colour.TEXT_RESET);
                     showMenu();
                     break;
 
                 case "5":
-                    System.out.println("Sletter ordre historik...");
+                    System.out.println(Colour.TEXT_GREEN + "Sletter ordre historik..." + Colour.TEXT_RESET);
                     deleteOrderHistorik(file);
-                    System.out.println("Ordre historikken er slettet");
+                    System.out.println(Colour.TEXT_RED + "Ordre historikken er slettet" + Colour.TEXT_RESET);
                     break;
 
                 case "0":
-                    System.out.println("Lukker programmet....");
+                    System.out.println(Colour.TEXT_RED + "Lukker programmet...." + Colour.TEXT_RESET);
                     exit();
                     break;
             }
@@ -66,19 +66,19 @@ public class UserInterface {
     // Melder en specifik ordrer som "Afsluttet"
     private void finishOrder(File file) throws FileNotFoundException {
         if (con.showOrderList().size() > 0) {
-            System.out.println("Her er de nuværende ordrer i systemet: ");
+            System.out.println(Colour.TEXT_YELLOW + "Her er de nuværende ordrer i systemet: " + Colour.TEXT_RESET);
             System.out.println(showOrderListInString());
             Scanner input = new Scanner(System.in);
-            System.out.println("Skriv nummeret på ordren som skal afsluttes: ");
+            System.out.println(Colour.TEXT_RED + "Skriv nummeret på ordren som skal afsluttes: " + Colour.TEXT_RESET);
             int ordreNr = input.nextInt() - 1;
 
             if (con.showOrderList().size() >= ordreNr + 1) {
                 con.finishOrder(ordreNr, file);
             } else {
-                System.out.println("Ordre nummeret er ugyldigt.");
+                System.out.println(Colour.TEXT_RED + "Ordre nummeret er ugyldigt." + Colour.TEXT_RESET);
             }
         } else {
-            System.out.println("Der er ingen ordre på listen.");
+            System.out.println(Colour.TEXT_RED + "Der er ingen ordre på listen." + Colour.TEXT_RESET);
         }
     }
 
@@ -95,26 +95,26 @@ public class UserInterface {
     private void createOrder() {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("For at kunne oprette din ordrer, skal vi bruge nogle informationer: ");
-        System.out.println("Nummeret på din pizza: ");
+        System.out.println(Colour.TEXT_YELLOW + "For at kunne oprette din ordrer, skal vi bruge nogle informationer: " + Colour.TEXT_RESET);
+        System.out.println(Colour.TEXT_RED + "Nummeret på din pizza: " + Colour.TEXT_RESET);
         int pizzaPlacement = input.nextInt();
         // Tjekker hvorvidt det pizza navn brugeren indtaster findes i menuen og tilføjer pizzaen til listen af ordre.
         if (con.findPizza(pizzaPlacement)) {
-            System.out.println("Hvor mange minutter vil det tage før pizzaen kan afhentes?");
+            System.out.println(Colour.TEXT_RED + "Hvor mange minutter vil det tage før pizzaen kan afhentes?" + Colour.TEXT_RESET);
             int minutesTillPickup = input.nextInt();
             // Tilføjer den ønskede pizza til ordrelisten med den estimerede ventetid.
             con.addToOrderList(pizzaPlacement, minutesTillPickup);
-            System.out.println("Ordren er blevet tilføjet til listen af ordre!");
-            System.out.println("Ønsker du at se listen? (J/N)");
+            System.out.println(Colour.TEXT_YELLOW + "Ordren er blevet tilføjet til listen af ordre!");
+            System.out.println("Ønsker du at se listen? (J/N)" + Colour.TEXT_RESET);
             input.nextLine();
             String answer = input.nextLine();
             if (answer.equalsIgnoreCase("j")) {
                 System.out.println(showOrderListInString());
             } else {
-                System.out.println("Returnerer til hovedmenuen...");
+                System.out.println(Colour.TEXT_RED + "Returnerer til hovedmenuen..." + Colour.TEXT_RESET);
             }
         } else {
-            System.out.println("Denne pizza eksisterer ikke i vores menu!");
+            System.out.println(Colour.TEXT_RED + "Denne pizza eksisterer ikke i vores menu!" + Colour.TEXT_RESET);
         }
     }
 

@@ -69,8 +69,8 @@ public class Controller {
 
         for (int i = 0; i < orderList.size(); i++) {
             str.append((i + 1) + ")\t");
-            str.append("Pizza: " + orderList.get(i).getOrderedPizza().getPizzaName() + "\t\t");
-            str.append("Ventetid: " + orderList.get(i).getWaitTime() + "\n");
+            str.append(Colour.TEXT_YELLOW + "Pizza: " + Colour.TEXT_RESET + Colour.TEXT_GREEN + orderList.get(i).getOrderedPizza().getPizzaName() + Colour.TEXT_RESET + "\t\t");
+            str.append(Colour.TEXT_YELLOW + "Ventetid: " + Colour.TEXT_RESET + Colour.TEXT_GREEN + orderList.get(i).getWaitTime() + Colour.TEXT_RESET + "\n");
         }
 
         String showOrderList = str.toString();
