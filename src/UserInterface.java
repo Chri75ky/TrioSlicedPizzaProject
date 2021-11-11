@@ -10,7 +10,7 @@ public class UserInterface {
     public void run() throws FileNotFoundException {
         boolean run = true;
         Scanner in = new Scanner(System.in);
-        File file = new File("ordreHistorik.txt");
+        File file = new File("data/ordreHistorik.txt");
 
         while (run) {
             System.out.println(Colour.TEXT_YELLOW + """

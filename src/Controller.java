@@ -82,7 +82,7 @@ public class Controller {
 
     // Metoden opretter StringBuilder objekt som returnere stringBuilder med alle linjerne i 'PizzaMenuCard.txt" filen
     public StringBuilder showMenu() throws FileNotFoundException {
-        Scanner menu = new Scanner(new File("PizzaMenuCard.txt"));
+        Scanner menu = new Scanner(new File("data/PizzaMenuCard.txt"));
         StringBuilder fullMenu = new StringBuilder();
 
         while (menu.hasNextLine()) {
